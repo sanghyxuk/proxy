@@ -26,7 +26,7 @@ app.add_middleware(
 # 📌 라우터 등록
 app.include_router(key_issuer.router)
 
-FLASK_AI_URL = "http://3.37.148.156:5000/analyze"
+FLASK_AI_URL = "http://10.0.3.86:5000/analyze"
 
 @app.middleware("http")
 async def proxy_auth_middleware(request: Request, call_next):

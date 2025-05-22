@@ -17,7 +17,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # 또는 ["*"] 임시 허용
+    allow_origins=["http://43.203.14.194"],  # 또는 ["*"] 임시 허용
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -18,7 +18,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # 또는 ["*"] 임시 허용
+    allow_origins=["http://43.203.14.194"],  # 또는 ["*"] 임시 허용
     allow_credentials=True, # cors 요처에 대해 쿠키, Authorization 헤더, TLS 클라이언트 인증서 등 허용 여부
     allow_methods=["*"], # GET, POST, PUT, DELETE, OPTIONS 등
     allow_headers=["*"], # Authorization, Content-Type, X-Auth-Token 등
@@ -28,7 +28,7 @@ app.add_middleware(
 app.include_router(key_issuer.router) # 내부는 이것과 같음 app.add_api_route("/issue-key", issue_api_key, methods=["POST"])
 
 
-FLASK_AI_URL = "http://127.0.0.1:5000/analyze"
+FLASK_AI_URL = "http://3.37.74.62:5000/analyze"
 
 @app.middleware("http") # 모든 http 요청을 가로챔
 async def proxy_auth_middleware(request: Request, call_next): # call_next는 내부적인 코드가 있는 함수
@@ -72,7 +72,7 @@ async def analyze_proxy(request: Request, target: str):
 
         # 대상 서버 포트 결정
         if target == "community":
-            ai_url = "http://127.0.0.1:5000/analyze"
+            ai_url = "http://3.37.74.62:5000/analyze"
         elif target == "chat":
             ai_url = "http://127.0.0.1:5001/analyze"
         else:

@@ -74,7 +74,7 @@ async def analyze_proxy(request: Request, target: str):
         if target == "community":
             ai_url = "http://10.0.3.86:5000/analyze"
         elif target == "chat":
-            ai_url = "http://127.0.0.1:5001/analyze"
+            ai_url = "http://10.0.3.121:5001/analyze"
         else:
             return JSONResponse(status_code=404, content={"error": f"지원하지 않는 분석 대상: {target}"})
 

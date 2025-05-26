@@ -1,3 +1,5 @@
+# fastapi_gateway/middlewares/auth_middleware.py
+
 from fastapi import Request
 from fastapi.responses import JSONResponse
 from fastapi_gateway.services.auth_service import verify_api_key_and_jwt
@@ -18,15 +20,11 @@ async def proxy_auth_middleware(request: Request, call_next):
 
         try:
             body_bytes = await request.body()
-            body_str = body_bytes.decode("utf-8") if body_bytes else ""
+            body_str = body_bytes.decode("utf-8")
             request.state.body = body_bytes
             request.state.body_str = body_str
 
-            if body_str:
-                request_body = json.loads(body_str)
-            else:
-                request_body = {}
-
+            request_body = json.loads(body_str)
             request_body["__raw_body__"] = body_str
         except Exception as e:
             return JSONResponse(status_code=400, content={"error": f"요청 본문 파싱 실패: {str(e)}"})

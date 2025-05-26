@@ -34,14 +34,14 @@
 
 ```bash
   # 의존성 설치
-pip3 install fastapi,uvicorn,sqlalchemy,requests,pymysql,pyjwt,redis,typing-inspect,fastapi-utils
-pip3 install sqlalchemy
-pip3 install requests
-pip3 install pymysql
-pip3 install pyjwt
-pip3 install redis
-pip3 install typing-inspect
-pip3 install fastapi-utils
+pip install fastapi,uvicorn,sqlalchemy,requests,pymysql,pyjwt,redis,typing-inspect,fastapi-utils
+pip install sqlalchemy
+pip install requests
+pip install pymysql
+pip install pyjwt
+pip install redis
+pip install typing-inspect
+pip install fastapi-utils
 
   # FastAPI 실행
 uvicorn fastapi_gateway.main:app --port 8001 --host 0.0.0.0 --http h11

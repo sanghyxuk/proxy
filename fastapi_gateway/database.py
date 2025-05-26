@@ -7,7 +7,7 @@ import datetime
 from sqlalchemy import Enum as SqlEnum
 
 #  DB 접속 정보
-DATABASE_URL = "mysql+pymysql://admin:purgo1234@purgo-db-instance.claoqygugt7j.ap-northeast-2.rds.amazonaws.com:3306/purgo_proxy"
+DATABASE_URL = "mysql+pymysql://root:proxy1234@localhost:3307/purgo_proxy"
 
 #  SQLAlchemy 구성
 engine = create_engine(DATABASE_URL, echo=True)

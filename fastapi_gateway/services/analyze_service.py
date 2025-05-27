@@ -28,7 +28,7 @@ async def handle_analyze(request: Request, target: str):
             result = flask_response.json()
 
         # ✅ 1. 로그 발행 (fasttext_result 저장 포함)
-        fasttext_words = result.get("result", {}).get("fasttext_result", [])
+        fasttext_words = result.get("fasttext", {}).get("detected_words", [])
         publish_badwords(fasttext_words)
 
         # ✅ 2. abuse_count 발행 (비속어 판단 시)

@@ -17,13 +17,13 @@ async def handle_analyze(request: Request, target: str):
     if target == "community":
         ai_url = os.getenv("AI_COMMUNITY_URL")
     elif target == "chat":
-        ai_url = os.getenv("AI_COMMUNITY_URL")
+        ai_url = os.getenv("AI_CHAT_URL")
     else:
         return JSONResponse(status_code=404, content={"error": f"지원하지 않는 분석 대상: {target}"})
 
     try:
         body = json.loads(request.state.body.decode("utf-8"))
-        async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(30.0)) as client:
             flask_response = await client.post(ai_url, json=body)
             result = flask_response.json()
 
